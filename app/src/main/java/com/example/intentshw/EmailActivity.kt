@@ -32,7 +32,11 @@ class EmailActivity: Activity() {
             startActivityForResult(shareIntent, REQUEST_CODE)
         }
     }
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        email.text.clear()
+        message.text.clear()
+        Toast.makeText(this,"Email sent",Toast.LENGTH_LONG).show()
+    }
     companion object{
         const val REQUEST_CODE = 600
     }
